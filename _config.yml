@@ -1,0 +1,43 @@
+# Site settings
+title: iOS Development Guide
+description: A comprehensive roadmap for iOS development
+url: "" # Add your GitHub Pages URL
+github_username: your-username
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Jekyll theme
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Custom variables
+author:
+  name: Your Name
+  email: your.email@example.com
+
+# Syntax highlighting
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Navigation
+header_pages:
+  - 1/1.1-introduction.md
+  - 2/2-git.md
+  - 3/3-app-arch.md
+  - 4/4-uikit.md
+  - 5/5-mvvm.md
+  - 6/6-unit-testing.md
+  - 7/7.1-navigation.md
+  - 8/8.1-networking-1.md
+  - 9/9.1-uikit.md
+  - 11/11-persistence.md
+
+# Collections
+collections:
+  tutorials:
+    output: true
