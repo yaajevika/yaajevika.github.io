@@ -80,29 +80,21 @@ Storyboards provide a visual way to design your app's user interface and define 
 
 **Code Example**
 
+```swift
 // Triggering a segue programmatically
-
 @IBAction func buttonTapped(_ sender: UIButton) {
-
-performSegue(withIdentifier: "showDetailSegue", sender: self)
-
+    performSegue(withIdentifier: "showDetailSegue", sender: self)
 }
 
 // Preparing for a segue
-
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-if segue.identifier == "showDetailSegue" {
-
-if let destinationVC = segue.destination as? DetailViewController {
-
-destinationVC.itemId = selectedItemId
-
+    if segue.identifier == "showDetailSegue" {
+        if let destinationVC = segue.destination as? DetailViewController {
+            destinationVC.itemId = selectedItemId
+        }
+    }
 }
-
-}
-
-}
+```
 
 **Visual Representation**
 
@@ -150,6 +142,7 @@ A UINavigationController is a container view controller that:
 
 **Code Example**
 
+```swift
 // Push navigation example
 func navigateToDetail(withId id: String) {
     let detailVC = DetailViewController()
@@ -174,10 +167,12 @@ func presentSettings() {
 @IBAction func backButtonTapped(_ sender: UIButton) {
     navigationController?.popViewController(animated: true)
 }
+```
 
 **Visual Representation**
 
 Navigation Stack:
+```text
 
 ┌────────────────┐     push     ┌────────────────┐
 │                │ ───────────> │                │
@@ -192,7 +187,7 @@ Modal Presentation:
 │  MainScreen    │              │  SettingsVC    │
 │                │ <─────────── │                │
 └────────────────┘   dismiss    └────────────────┘
-
+```
 
 **Pros**
 
@@ -222,6 +217,7 @@ Tab-based navigation uses a UITabBarController to switch between distinct sectio
 
 **Code Example**
 
+```swift
 func setupTabBarController() {
     let tabBarController = UITabBarController()
 
@@ -249,9 +245,10 @@ func setupTabBarController() {
     // Set as root view controller
     window?.rootViewController = tabBarController
 }
+```
 
 **Visual Representation**
-
+```text
 ┌─────────────────────────┐
 │   UITabBarController    │
 └─────────────────────────┘
@@ -273,6 +270,7 @@ func setupTabBarController() {
 └─────────────────┘
 
 [   Home   |   Profile   ]  <- Tab Bar
+```
 
 **Pros**
 
@@ -302,6 +300,7 @@ Container view controllers manage and display content from other view controller
 
 **Code Example**
 
+```swift
 class ContainerViewController: UIViewController {
     private var currentViewController: UIViewController?
 
@@ -361,9 +360,10 @@ containerVC.displayViewController(homeVC)
 // Later transition to a different view controller
 let detailVC = DetailViewController()
 containerVC.transitionToViewController(detailVC)
-
+```
 **Visual Representation**
 
+```text
 ┌────────────────────────────────────┐
 │  Container View Controller         │
 │                                    │
@@ -371,6 +371,7 @@ containerVC.transitionToViewController(detailVC)
 │  │  Child View Controller      │   │
 │  └─────────────────────────────┘   │
 └────────────────────────────────────┘
+```
 
 **Pros**
 
@@ -465,6 +466,7 @@ In the Coordinator pattern, the UINavigationController is particularly important
 
 The MainCoordinator serves as the entry point of the application's coordination system:
 
+```swift
 final class MainCoordinator {
     let navigationController: UINavigationController
     let authenticationCoordinator: AuthenticationCoordinator
@@ -480,6 +482,7 @@ final class MainCoordinator {
         navigationController.setViewControllers([rootViewController], animated: false)
     }
 }
+```
 
 
 **Key implementation points:**
@@ -492,6 +495,7 @@ final class MainCoordinator {
 
 Coordinators communicate with each other using delegate protocols. When authentication succeeds, the MainCoordinator responds by showing the browse flow:
 
+```swift
 extension MainCoordinator: AuthenticationCoordinatorDelegate {
     func userDidSuccessfullyAuthenticate() {
         let viewController = browseCoordinator.rootViewController()
@@ -507,6 +511,7 @@ extension MainCoordinator: BrowseCoordinatorDelegate {
         navigationController.popToRootViewController(animated: false)
     }
 }
+```
 
 **Key implementation points:**
 
@@ -519,6 +524,7 @@ extension MainCoordinator: BrowseCoordinatorDelegate {
 
 The AuthenticationCoordinator manages all navigation within the authentication flow:
 
+```swift
 final class AuthenticationCoordinator {
     weak var delegate: AuthenticationCoordinatorDelegate?
     private var navigationController: UINavigationController
@@ -551,6 +557,7 @@ extension AuthenticationCoordinator: WelcomeViewDelegate {
         delegate?.userDidSuccessfullyAuthenticate()
     }
 }
+```
 
 **Key implementation points:**
 
@@ -563,6 +570,7 @@ extension AuthenticationCoordinator: WelcomeViewDelegate {
 
 The AuthenticationCoordinator also manages sub-flows within authentication:
 
+```swift
 extension AuthenticationCoordinator: LogInViewDelegate {
     func navigateToForgotPassword() {
         let viewController = ForgotPasswordViewFactory.create()
@@ -586,6 +594,7 @@ extension AuthenticationCoordinator: ForgotPasswordViewDelegate {
         }
     }
 }
+```
 
 **Key implementation points:**
 
@@ -598,6 +607,7 @@ extension AuthenticationCoordinator: ForgotPasswordViewDelegate {
 
 The BrowseCoordinator demonstrates how to handle more complex UI structures like tab bar controllers:
 
+```swift
 final class BrowseCoordinator {
     weak var delegate: BrowseCoordinatorDelegate?
 
@@ -622,6 +632,7 @@ final class BrowseCoordinator {
         return tabbar
     }
 }
+```
 
 **Key implementation points:**
 
@@ -634,6 +645,7 @@ final class BrowseCoordinator {
 
 The BrowseCoordinator handles different navigation scenarios within its flow:
 
+```swift
 extension BrowseCoordinator: BrowseViewDelegate {
     func openPictureDetails(picture: PictureModel, _ navigationController: UINavigationController) {
         let pictureDetails = PictureDetailsFactory.create(picture: picture)
@@ -654,6 +666,7 @@ extension BrowseCoordinator: SettingsViewDelegate {
         delegate?.userDidLogOut()
     }
 }
+```
 
 
 **Key implementation points:**
@@ -682,6 +695,7 @@ This hierarchical structure offers several benefits:
 
 The Unsplash example demonstrates communication between coordinators using delegation:
 
+```swift
 protocol AuthenticationCoordinatorDelegate: AnyObject {
     func userDidSuccessfullyAuthenticate()
 }
@@ -689,6 +703,7 @@ protocol AuthenticationCoordinatorDelegate: AnyObject {
 protocol BrowseCoordinatorDelegate: AnyObject {
     func userDidLogOut()
 }
+```
 
 This delegate-based communication:
 
@@ -701,11 +716,13 @@ This delegate-based communication:
 
 The example integrates the Factory pattern with coordinators:
 
+```swift
 func rootViewController() -> UIViewController {
     let authentication = WelcomeViewFactory.create()
     authentication.delegate = self
     return authentication
 }
+```
 
 This combination:
 
@@ -745,11 +762,11 @@ Challenge: Multiple navigation controllers in complex UIs like tab bars.
 
 Solution in the example:
 
+```swift
 func openPictureDetails(picture: PictureModel, _ navigationController: UINavigationController) {
-
 // Navigation logic using the passed navigationController
-
 }
+```
 
 Pass the specific navigation controller to coordinator methods when handling navigation within tabs.
 
@@ -769,94 +786,75 @@ For your interns' homework assignment (implementing navigation from Sign In to S
 
 1. **Create a coordinator protocol**:
 
+```swift
 protocol Coordinator: AnyObject {
-
-func start()
-
+    func start()
 }
+```
 
 1. **Implement an AuthCoordinator**:
 
+```swift
 class AuthCoordinator: Coordinator {
+    private let navigationController: UINavigationController
 
-private let navigationController: UINavigationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
 
-init(navigationController: UINavigationController) {
+    func start() {
+        showSignIn()
+    }
 
-self.navigationController = navigationController
+    func showSignIn() {
+        let signInVC = SignInViewController()
+        signInVC.delegate = self
+        navigationController.setViewControllers([signInVC], animated: false)
+    }
 
+    func showSignUp() {
+        let signUpVC = SignUpViewController()
+        signUpVC.delegate = self
+        navigationController.pushViewController(signUpVC, animated: true)
+    }
 }
-
-func start() {
-
-showSignIn()
-
-}
-
-func showSignIn() {
-
-let signInVC = SignInViewController()
-
-signInVC.delegate = self
-
-navigationController.setViewControllers(\[signInVC\], animated: false)
-
-}
-
-func showSignUp() {
-
-let signUpVC = SignUpViewController()
-
-signUpVC.delegate = self
-
-navigationController.pushViewController(signUpVC, animated: true)
-
-}
-
-}
+```
 
 1. **Implement View Controller delegates**:
 
+```swift
 extension AuthCoordinator: SignInViewControllerDelegate {
-
-func didTapSignUp() {
-
-showSignUp()
-
-}
-
+    func didTapSignUp() {
+        showSignUp()
+    }
 }
 
 extension AuthCoordinator: SignUpViewControllerDelegate {
-
-func didTapBack() {
-
-navigationController.popViewController(animated: true)
-
+    func didTapBack() {
+        navigationController.popViewController(animated: true)
+    }
 }
-
-}
+```
 
 1. **Set up in AppDelegate/SceneDelegate**:
 
-func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+```swift
+func scene(_ scene: UIScene,
+           willConnectTo session: UISceneSession,
+           options connectionOptions: UIScene.ConnectionOptions) {
 
-guard let windowScene = (scene as? UIWindowScene) else { return }
+    guard let windowScene = (scene as? UIWindowScene) else { return }
 
-let window = UIWindow(windowScene: windowScene)
+    let window = UIWindow(windowScene: windowScene)
+    let navigationController = UINavigationController()
 
-let navigationController = UINavigationController()
+    let authCoordinator = AuthCoordinator(navigationController: navigationController)
+    authCoordinator.start()
 
-let authCoordinator = AuthCoordinator(navigationController: navigationController)
-
-authCoordinator.start()
-
-window.rootViewController = navigationController
-
-window.makeKeyAndVisible()
-
-self.window = window
-
+    window.rootViewController = navigationController
+    window.makeKeyAndVisible()
+    self.window = window
 }
+```
 
-By following this implementation pattern, interns will be able to successfully implement a coordinator that navigates between Sign In and Sign Up screens, as required in the homework.
+By following this implementation pattern, you will be able to successfully implement a coordinator that navigates between Sign In and Sign Up screens.
