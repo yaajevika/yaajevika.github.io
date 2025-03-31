@@ -1,0 +1,12 @@
+/* assets/css/custom.css */
+body {
+  background-color: #f8f8f8;  /* Light gray background */
+  color: #333;                /* Dark text */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  color: #000;
+  text-align: center;
+}
+/* Add more custom styles as needed */
