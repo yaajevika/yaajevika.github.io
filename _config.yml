@@ -5,12 +5,12 @@ title: iOS Internship Roadmap
 markdown: kramdown
 highlighter: rouge
 
-# Jekyll theme
-theme: minima
+# (Remove or comment this out if you don't want Minima)
+# theme: minima
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-
 
 # Syntax highlighting
 kramdown:
