@@ -6,7 +6,7 @@
 
 [2. Structure of a unit test](6.2/6.2-structure.md)
 
-[3. Introducing XCTest](6.4/6.4-introducing-xctest.md)
+[3. Introducing XCTest](6.3/6.3-introducing-xctest.md)
 
 [4. Mocking](6.4/6.4-mocking.md)
 
