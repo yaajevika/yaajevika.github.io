@@ -190,55 +190,63 @@
       updateProgressBar();
     });
 
-    // Calculate and update progress bar
     function updateProgressBar() {
-      // Module path to module number mapping
-      const moduleMapping = {
-        '/': 0, 
-        '/1/': 1,
-        '/2/': 2,
-        '/3/': 3,
-        '/4/': 4,
-        '/5/': 5,
-        '/6/': 6,
-        '/7/': 7,
-        '/8/': 8,
-        '/9/': 9,
-        '/10/': 10,
-        '/11/': 11
-      };
+    // Module path to module number mapping
+    const moduleMapping = {
+      '/': 1, // Change this to start from Module 1 on homepage
+      '/1/': 1,
+      '/2/': 2,
+      '/3/': 3,
+      '/4/': 4,
+      '/5/': 5,
+      '/6/': 6,
+      '/7/': 7,
+      '/8/': 8,
+      '/9/': 9,
+      '/10/': 10,
+      '/11/': 11
+    };
 
+    // Get current URL path
+    const path = window.location.pathname;
 
-      // Get current URL path
-      const path = window.location.pathname;
-
-      // Determine current module
-      let currentModule = 0;
-      for (const modulePath in moduleMapping) {
-        if (path.includes(modulePath)) {
-          currentModule = moduleMapping[modulePath];
-          break;
-        }
+    // Determine current module
+    let currentModule = 1; // Default to Module 1
+    for (const modulePath in moduleMapping) {
+      if (path.includes(modulePath)) {
+        currentModule = moduleMapping[modulePath];
+        break;
       }
-
-      // Default to module 1 if on homepage or module not found
-      if (currentModule === 0) {
-        if (path === '/' || path === '/index.html') {
-          currentModule = 1;
-        }
-      }
-
-      // Total number of modules
-      const totalModules = 11;
-
-      // Calculate progress percentage
-      const progressPercentage = Math.max(0, Math.min(100, (currentModule / totalModules) * 100));
-
-      // Update the progress bar and text
-      document.getElementById('progress-bar').style.width = progressPercentage + '%';
-      document.getElementById('current-module').textContent = `Module ${currentModule} of ${totalModules}`;
-      document.getElementById('progress-percentage').textContent = `${Math.round(progressPercentage)}%`;
     }
+
+    // Total number of modules
+    const totalModules = 11;
+
+    // Calculate progress percentage
+    const progressPercentage = Math.max(0, Math.min(100, (currentModule / totalModules) * 100));
+
+    // Update the progress bar and text
+    const progressBar = document.getElementById('progress-bar');
+    const currentModuleElement = document.getElementById('current-module');
+    const progressPercentageElement = document.getElementById('progress-percentage');
+
+    if (progressBar) {
+      progressBar.style.width = `${progressPercentage}%`;
+    }
+
+    if (currentModuleElement) {
+      currentModuleElement.textContent = `Module ${currentModule} of ${totalModules}`;
+    }
+
+    if (progressPercentageElement) {
+      progressPercentageElement.textContent = `${Math.round(progressPercentage)}%`;
+    }
+
+    return currentModule; // Optional: return the current module number
+  }
+
+  // Optional: Call the function when the page loads
+  document.addEventListener('DOMContentLoaded', updateProgressBar);
   </script>
 </body>
 </html>
