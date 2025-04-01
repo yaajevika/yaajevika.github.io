@@ -98,7 +98,9 @@ body {
 
 .sidebar-nav a.active {
   color: white;
+  padding: 10px 16px;
   background-color: var(--primary-color);
+
 }
 
 .sidebar-nav h3 {
@@ -520,10 +522,6 @@ aside:has(.🔥) {
 
 .cta-button {
   animation: pulse 2s infinite;
-}
-
-.cta-button:hover {
-  animation: none;
 }
 
 /* Add arrow icon with animation */
