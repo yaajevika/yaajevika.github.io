@@ -194,6 +194,7 @@
     function updateProgressBar() {
       // Module path to module number mapping
       const moduleMapping = {
+        '/': 0, 
         '/1/': 1,
         '/2/': 2,
         '/3/': 3,
@@ -206,6 +207,7 @@
         '/10/': 10,
         '/11/': 11
       };
+
 
       // Get current URL path
       const path = window.location.pathname;
