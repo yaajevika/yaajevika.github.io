@@ -1,5 +1,3 @@
-# 3. Application Architecture
-
 
 [1. Introduction](3.1/3.1-introducing.md)
 

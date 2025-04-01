@@ -1,4 +1,3 @@
-# 4 UIKit Basics - Part 1
 
 UIKit is Apple’s mature framework for building user interfaces on iOS, iPadOS, and tvOS.
 

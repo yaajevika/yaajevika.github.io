@@ -1,4 +1,3 @@
-# 6. Unit Testing Fundamentals
 
 ---
 
