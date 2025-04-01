@@ -7,7 +7,9 @@ title: iOS Development Guide
 
 This comprehensive guide will take you through building a complete iOS application using modern development practices. By following along, you'll learn essential skills for creating professional iOS apps.
 
+
 ## 🔍 What You'll Build
+
 
 A fully functional **Unsplash App** that allows users to:
 - Browse high-quality images
@@ -15,7 +17,9 @@ A fully functional **Unsplash App** that allows users to:
 - Search and filter content
 - Navigate with intuitive UI patterns
 
+
 ## 🛠️ What You'll Learn
+
 
 <div class="learning-tracks">
   <div class="track">
@@ -28,6 +32,7 @@ A fully functional **Unsplash App** that allows users to:
     </ul>
   </div>
 
+
   <div class="track">
     <h3><i class="fas fa-sitemap"></i> Architecture</h3>
     <ul>
@@ -37,6 +42,7 @@ A fully functional **Unsplash App** that allows users to:
       <li>Module organization</li>
     </ul>
   </div>
+
 
   <div class="track">
     <h3><i class="fas fa-network-wired"></i> Data & Networking</h3>
