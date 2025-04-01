@@ -432,6 +432,7 @@ aside {
 aside h3 {
   margin-top: 0;
   color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 /* Special aside types */
@@ -447,4 +448,93 @@ aside:has(.🔥) {
 .🤔, .🔥 {
   font-size: 1.5em;
   margin-right: 0.5em;
+}
+
+/* Modern CTA container with background animation */
+.cta-container {
+  text-align: center;
+  margin: 50px 0;
+  padding: 40px 30px;
+  background-color: var(--light-bg);
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+/* Add animated gradient background */
+.cta-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 122, 255, 0.1),
+    rgba(90, 200, 250, 0.1),
+    rgba(255, 149, 0, 0.1),
+    rgba(0, 122, 255, 0.1)
+  );
+  animation: gradientBG 6s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientBG {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-10%, -10%) rotate(180deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* Modern CTA button with pulse effect */
+.cta-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white !important;
+  padding: 15px 35px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  text-decoration: none !important;
+  box-shadow: 0 5px 15px rgba(0, 122, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 122, 255, 0.4);
+  background-color: #0062cc;
+}
+
+/* Pulsing animation for the button */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(0, 122, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0); }
+}
+
+.cta-button {
+  animation: pulse 2s infinite;
+}
+
+.cta-button:hover {
+  animation: none;
+}
+
+/* Add arrow icon with animation */
+.cta-button:after {
+  content: " →";
+  opacity: 0;
+  margin-left: -10px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover:after {
+  opacity: 1;
+  margin-left: 10px;
 }
