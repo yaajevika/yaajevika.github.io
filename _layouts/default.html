@@ -191,59 +191,76 @@
     });
 
     function updateProgressBar() {
-    // Module path to module number mapping
-    const moduleMapping = {
-      '/': 1, // Change this to start from Module 1 on homepage
-      '/1/': 1,
-      '/2/': 2,
-      '/3/': 3,
-      '/4/': 4,
-      '/5/': 5,
-      '/6/': 6,
-      '/7/': 7,
-      '/8/': 8,
-      '/9/': 9,
-      '/10/': 10,
-      '/11/': 11
-    };
+      // Module path to module number mapping
+      const moduleMapping = {
+        '/': 1,
+        '/module1/': 1,
+        '/module2/': 2,
+        '/module3/': 3,
+        '/module4/': 4,
+        '/module5/': 5,
+        '/module6/': 6,
+        '/module7/': 7,
+        '/module8/': 8,
+        '/module9/': 9,
+        '/module10/': 10,
+        '/module11/': 11
+      };
 
-    // Get current URL path
-    const path = window.location.pathname;
+      // Get current URL path
+      const path = window.location.pathname;
 
-    // Determine current module
-    let currentModule = 1; // Default to Module 1
-    for (const modulePath in moduleMapping) {
-      if (path.includes(modulePath)) {
-        currentModule = moduleMapping[modulePath];
-        break;
+      // Debug logging
+      console.log('Current Path:', path);
+
+      // Determine current module
+      let currentModule = 1; // Default to Module 1
+      for (const [modulePath, moduleNumber] of Object.entries(moduleMapping)) {
+        // Use exact matching to avoid false positives
+        if (path === modulePath || path.startsWith(modulePath)) {
+          currentModule = moduleNumber;
+          break;
+        }
       }
+
+      // Total number of modules
+      const totalModules = 11;
+
+      // Calculate progress percentage
+      const progressPercentage = Math.max(0, Math.min(100, (currentModule / totalModules) * 100));
+
+      // Debug logging
+      console.log('Current Module:', currentModule);
+      console.log('Progress Percentage:', progressPercentage);
+
+      // Update the progress bar and text
+      const progressBar = document.getElementById('progress-bar');
+      const currentModuleElement = document.getElementById('current-module');
+      const progressPercentageElement = document.getElementById('progress-percentage');
+
+      if (progressBar) {
+        progressBar.style.width = `${progressPercentage}%`;
+      }
+
+      if (currentModuleElement) {
+        currentModuleElement.textContent = `Module ${currentModule} of ${totalModules}`;
+      }
+
+      if (progressPercentageElement) {
+        progressPercentageElement.textContent = `${Math.round(progressPercentage)}%`;
+      }
+
+      return currentModule;
     }
 
-    // Total number of modules
-    const totalModules = 11;
+    // Call the function when the page loads and when the route changes
+    document.addEventListener('DOMContentLoaded', updateProgressBar);
 
-    // Calculate progress percentage
-    const progressPercentage = Math.max(0, Math.min(100, (currentModule / totalModules) * 100));
-
-    // Update the progress bar and text
-    const progressBar = document.getElementById('progress-bar');
-    const currentModuleElement = document.getElementById('current-module');
-    const progressPercentageElement = document.getElementById('progress-percentage');
-
-    if (progressBar) {
-      progressBar.style.width = `${progressPercentage}%`;
+    // If using client-side routing, you might need to add a route change listener
+    // This is a generic example and may need to be adapted to your specific routing library
+    if (window.addEventListener) {
+      window.addEventListener('popstate', updateProgressBar);
     }
-
-    if (currentModuleElement) {
-      currentModuleElement.textContent = `Module ${currentModule} of ${totalModules}`;
-    }
-
-    if (progressPercentageElement) {
-      progressPercentageElement.textContent = `${Math.round(progressPercentage)}%`;
-    }
-
-    return currentModule; // Optional: return the current module number
-  }
 
   // Optional: Call the function when the page loads
   document.addEventListener('DOMContentLoaded', updateProgressBar);
