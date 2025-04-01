@@ -510,7 +510,7 @@ aside:has(.🔥) {
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0, 122, 255, 0.4);
-  background-color: #0062cc;
+  background-color: var(--accent-color);
 }
 
 /* Pulsing animation for the button */
