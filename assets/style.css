@@ -1,248 +1,88 @@
-/* Basic layout enhancements */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
-  color: #333;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-}
+/* assets/css/style.css */
 
-/* Improved headings */
-h1, h2, h3, h4, h5, h6 {
-  color: #0366d6;
-  margin-top: 24px;
-  margin-bottom: 16px;
-  font-weight: 600;
-}
+/* Import a Google Font example */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
-h1 {
-  font-size: 2em;
-  border-bottom: 1px solid #eaecef;
-  padding-bottom: 0.3em;
-}
-
-h2 {
-  font-size: 1.5em;
-  border-bottom: 1px solid #eaecef;
-  padding-bottom: 0.3em;
-}
-
-/* Code blocks styling */
-pre {
-  background-color: #f6f8fa;
-  border-radius: 3px;
-  padding: 16px;
-  overflow: auto;
-}
-
-code {
-  font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-  background-color: rgba(27, 31, 35, 0.05);
-  border-radius: 3px;
-  padding: 0.2em 0.4em;
-  font-size: 85%;
-}
-
-pre code {
-  background-color: transparent;
+/* Global style reset or basic normalization */
+* {
+  margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Links */
-a {
-  color: #0366d6;
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header styling */
+.site-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e2e2;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+.site-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.site-title a {
+  text-decoration: none;
+  color: #333;
+}
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.site-nav a {
+  text-decoration: none;
+  color: #007acc;
+}
+
+/* Main content styling */
+.content {
+  padding: 1rem;
+}
+.content h1, .content h2, .content h3 {
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+.content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.content a {
+  color: #007acc;
   text-decoration: none;
 }
-
-a:hover {
+.content a:hover {
   text-decoration: underline;
 }
 
-/* Navigation styling */
-.navigation {
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin-bottom: 20px;
+/* Footer styling */
+.site-footer {
+  background-color: #fafafa;
+  border-top: 1px solid #e2e2e2;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  text-align: center;
+}
+.site-footer p {
+  color: #666;
 }
 
-.navigation ul {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.navigation li {
-  margin-right: 20px;
-  margin-bottom: 10px;
-}
-
-/* Responsive tables */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 20px;
-  overflow-x: auto;
+/* A simple responsive image class (if needed) */
+img.responsive-img {
+  max-width: 100%;
+  height: auto;
   display: block;
-}
-
-th, td {
-  border: 1px solid #dfe2e5;
-  padding: 8px 12px;
-}
-
-th {
-  background-color: #f6f8fa;
-  font-weight: 600;
-}
-
-tr:nth-child(even) {
-  background-color: #f8f9fa;
-}
-
-/* Swift code highlighting */
-.language-swift {
-  color: #333;
-}
-
-.language-swift .keyword {
-  color: #a71d5d;
-}
-
-.language-swift .string {
-  color: #183691;
-}
-
-.language-swift .comment {
-  color: #969896;
-}
-
-/* Callouts/notes */
-.note, .warning, .tip {
-  padding: 15px;
-  margin: 20px 0;
-  border-left: 5px solid;
-  border-radius: 3px;
-}
-
-.note {
-  background-color: #f8f9fa;
-  border-left-color: #0366d6;
-}
-
-.warning {
-  background-color: #fff5f5;
-  border-left-color: #e53e3e;
-}
-
-.tip {
-  background-color: #f0fff4;
-  border-left-color: #38a169;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  body {
-    padding: 15px;
-  }
-
-  .navigation ul {
-    flex-direction: column;
-  }
-
-  .navigation li {
-    margin-right: 0;
-  }
-}\
-
-/* Code block container styling */
-.code-block {
-  background-color: #f6f8fa;
-  border-radius: 5px;
-  margin: 20px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Code block header with language label */
-.code-header {
-  background-color: #e1e4e8;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  padding: 8px 16px;
-  font-size: 12px;
-  color: #586069;
-  border-bottom: 1px solid #d1d5da;
-  display: flex;
-  justify-content: space-between;
-}
-
-.language-label {
-  background-color: #0366d6;
-  color: white;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-size: 11px;
-}
-
-.language-swift .language-label::after {
-  content: "Swift";
-}
-
-/* Line numbers for code blocks */
-.code-with-line-numbers {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  overflow-x: auto;
-}
-
-.line-numbers {
-  text-align: right;
-  padding: 16px 8px;
-  color: #6a737d;
-  border-right: 1px solid #e1e4e8;
-  user-select: none;
-}
-
-.code-content {
-  padding: 16px;
-  overflow-x: auto;
-}
-
-/* Specific Swift syntax elements */
-.token.keyword {
-  color: #a71d5d;
-}
-
-.token.string {
-  color: #183691;
-}
-
-.token.number {
-  color: #0086b3;
-}
-
-.token.comment {
-  color: #6a737d;
-  font-style: italic;
-}
-
-.token.function {
-  color: #6f42c1;
-}
-
-.token.property {
-  color: #005cc5;
-}
-
-.token.operator {
-  color: #d73a49;
-}
-/* style.css */
-.resize-img {
-  width: 400px;      /* or any width you prefer */
-  height: auto;      /* maintain aspect ratio */
-  display: block;    /* block display if you want each image on its own line */
-  margin: 0 auto;    /* center the image if you like */
+  margin: 1rem auto;
 }

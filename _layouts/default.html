@@ -1,25 +1,25 @@
+<!-- _layouts/default.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} - iOS Development</title>
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <title>{{ page.title | escape }} - {{ site.title | escape }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
+  <!-- Header Include -->
+  {% include header.html %}
 
+  <!-- Main Content Area -->
   <main class="content">
-    <h1>{{ page.title }}</h1>
+    <!-- The Markdown content gets injected here -->
     {{ content }}
   </main>
 
-  <footer>
-    <p>&copy; 2025 Endava. All rights reserved.</p>
-  </footer>
+  <!-- Footer Include -->
+  {% include footer.html %}
 
-  <!-- Optional: Add syntax highlighting for code blocks -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-swift.min.js"></script>
+  <!-- Optionally, you can add scripts or other assets here -->
 </body>
 </html>

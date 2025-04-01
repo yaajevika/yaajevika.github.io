@@ -1,23 +1,24 @@
+# _config.yml
+
 # Site settings
-title: iOS Internship Roadmap
+title: "My Awesome GitHub Pages Site"
+description: "A demonstration of a custom layout and styling"
+baseurl: ""  # If your site is published at https://username.github.io/repo-name, set baseurl: "/repo-name"
+url: "https://username.github.io"  # Your GitHub Pages domain (or custom domain if you set one)
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
 
-# (Remove or comment this out if you don't want Minima)
+# Turn off default theme by commenting it out or removing it
 # theme: minima
 
+# Plugins (common ones)
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Syntax highlighting
+# kramdown settings for extended Markdown features
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-
-# Collections
-collections:
-  tutorials:
-    output: true
