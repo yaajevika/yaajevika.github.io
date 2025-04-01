@@ -1,24 +1,32 @@
-# _config.yml
-
-# Site settings
-title: "My Awesome GitHub Pages Site"
-description: "A demonstration of a custom layout and styling"
-baseurl: ""  # If your site is published at https://username.github.io/repo-name, set baseurl: "/repo-name"
-url: "https://username.github.io"  # Your GitHub Pages domain (or custom domain if you set one)
+title: iOS Development Guide
+description: A comprehensive guide to modern iOS development through building an Unsplash app
+baseurl: "" # If your site is in a subdirectory, set it here (e.g., /repo-name)
+url: "" # Your site's base hostname & protocol
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
-
-# Turn off default theme by commenting it out or removing it
-# theme: minima
-
-# Plugins (common ones)
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-
-# kramdown settings for extended Markdown features
+#theme: jekyll-theme-minimal  # Removing theme setting
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+# GitHub Pages settings
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - scripts
+
+# Default layouts for different content types
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
