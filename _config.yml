@@ -1,11 +1,11 @@
-title: "iOS Development Guide"
-description: "A comprehensive guide to modern iOS development through building an Unsplash app"
+title: iOS Development Guide
+description: A comprehensive guide to modern iOS development through building an Unsplash app
 baseurl: "" # If your site is in a subdirectory, set it here (e.g., /repo-name)
 url: "" # Your site's base hostname & protocol
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-minimal
+#theme: jekyll-theme-minimal  # Removing theme setting
 kramdown:
   input: GFM
   syntax_highlighter: rouge
