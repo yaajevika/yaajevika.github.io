@@ -120,40 +120,30 @@
 </head>
 <body>
   <div class="sidebar">
-    <div class="sidebar-header">
-      <h1 class="sidebar-title">iOS Dev Guide</h1>
-    </div>
-
-    <nav>
-      <ul class="sidebar-nav">
-        <li><a href="{{ '/' | relative_url }}">Home</a></li>
-
-        <h3>Getting Started</h3>
-        <li><a href="{{ '/1/1.1-introduction' | relative_url }}">Introduction to Unsplash</a></li>
-        <li><a href="{{ '/2/2-git' | relative_url }}">Version Control with Git</a></li>
-
-        <h3>Architecture</h3>
-        <li><a href="{{ '/3/3-app-arch' | relative_url }}">Application Architecture</a></li>
-        <li><a href="{{ '/3/3.1/3.1-introducing' | relative_url }}">- Introduction</a></li>
-        <li><a href="{{ '/3/3.2/3.2-feature-design' | relative_url }}">- Feature Design</a></li>
-        <li><a href="{{ '/3/3.3/3.3-conclusion' | relative_url }}">- Conclusion</a></li>
-
-        <h3>UI Development</h3>
-        <li><a href="{{ '/4/4-uikit' | relative_url }}">UIKit Basics - Part 1</a></li>
-        <li><a href="{{ '/9/9.1-uikit' | relative_url }}">UIKit Basics - Part 2</a></li>
-        <li><a href="{{ '/7/7.1-navigation' | relative_url }}">UIKit Navigation</a></li>
-
-        <h3>Patterns & Practices</h3>
-        <li><a href="{{ '/5/5-mvvm' | relative_url }}">MVVM & Observable</a></li>
-        <li><a href="{{ '/6/6-unit-testing' | relative_url }}">Unit Testing</a></li>
-
-        <h3>Data & Networking</h3>
-        <li><a href="{{ '/8/8.1-networking-1' | relative_url }}">Networking Basics</a></li>
-        <li><a href="{{ '/10/10.1-more-networking' | relative_url }}">More Networking</a></li>
-        <li><a href="{{ '/11/11-persistence' | relative_url }}">Core Data Persistence</a></li>
-      </ul>
-    </nav>
+  <div class="sidebar-header">
+    <img src="{{ '/assets/images/ios-logo.png' | relative_url }}" alt="iOS Development" class="sidebar-logo">
+    <h1 class="sidebar-title">iOS Dev Guide</h1>
   </div>
+
+  <nav>
+    <ul class="sidebar-nav">
+      <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
+
+      <h3>Course Modules</h3>
+      <li><a href="{{ '/1/1.1-introduction' | relative_url }}" {% if page.url contains '/1/1.1-introduction' %}class="active"{% endif %}>1. Introduction to Unsplash</a></li>
+      <li><a href="{{ '/2/2-git' | relative_url }}" {% if page.url contains '/2/2-git' %}class="active"{% endif %}>2. Version Control with Git</a></li>
+      <li><a href="{{ '/3/3-app-arch' | relative_url }}" {% if page.url contains '/3/3-app-arch' %}class="active"{% endif %}>3. Application Architecture</a></li>
+      <li><a href="{{ '/4/4-uikit' | relative_url }}" {% if page.url contains '/4/4-uikit' %}class="active"{% endif %}>4. UIKit Basics - Part 1</a></li>
+      <li><a href="{{ '/5/5-mvvm' | relative_url }}" {% if page.url contains '/5/5-mvvm' %}class="active"{% endif %}>5. MVVM & Observable</a></li>
+      <li><a href="{{ '/6/6-unit-testing' | relative_url }}" {% if page.url contains '/6/6-unit-testing' %}class="active"{% endif %}>6. Unit Testing</a></li>
+      <li><a href="{{ '/7/7.1-navigation' | relative_url }}" {% if page.url contains '/7/7.1-navigation' %}class="active"{% endif %}>7. UIKit Navigation</a></li>
+      <li><a href="{{ '/8/8.1-networking-1' | relative_url }}" {% if page.url contains '/8/8.1-networking-1' %}class="active"{% endif %}>8. Networking Basics</a></li>
+      <li><a href="{{ '/9/9.1-uikit' | relative_url }}" {% if page.url contains '/9/9.1-uikit' %}class="active"{% endif %}>9. UIKit Basics - Part 2</a></li>
+      <li><a href="{{ '/10/10.1-more-networking' | relative_url }}" {% if page.url contains '/10/10.1-more-networking' %}class="active"{% endif %}>10. More Networking</a></li>
+      <li><a href="{{ '/11/11-persistence' | relative_url }}" {% if page.url contains '/11/11-persistence' %}class="active"{% endif %}>11. Core Data Persistence</a></li>
+    </ul>
+  </nav>
+</div>
 
   <div class="main-content">
     <header>
