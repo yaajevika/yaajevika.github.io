@@ -1,248 +1,105 @@
-/* Basic layout enhancements */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
-  color: #333;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Custom styles for iOS Development Guide */
+
+/* Add iOS-like fonts and colors */
+:root {
+  --ios-blue: #007aff;
+  --ios-gray: #8e8e93;
+  --ios-light-gray: #f2f2f7;
 }
 
-/* Improved headings */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Enhance code blocks to look more Xcode-like */
+.highlight .language-swift {
+  border-radius: 6px;
+}
+
+/* Better headings */
 h1, h2, h3, h4, h5, h6 {
-  color: #0366d6;
-  margin-top: 24px;
-  margin-bottom: 16px;
+  color: #333;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
   font-weight: 600;
 }
 
 h1 {
   font-size: 2em;
-  border-bottom: 1px solid #eaecef;
+  border-bottom: 1px solid #eee;
   padding-bottom: 0.3em;
 }
 
 h2 {
   font-size: 1.5em;
-  border-bottom: 1px solid #eaecef;
-  padding-bottom: 0.3em;
 }
 
-/* Code blocks styling */
+/* Add custom styling for callouts */
+blockquote {
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border-left: 4px solid var(--ios-blue);
+  background-color: var(--ios-light-gray);
+}
+
+/* Image styling */
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Code blocks */
 pre {
   background-color: #f6f8fa;
-  border-radius: 3px;
+  border-radius: 6px;
   padding: 16px;
   overflow: auto;
 }
 
 code {
-  font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-  background-color: rgba(27, 31, 35, 0.05);
-  border-radius: 3px;
-  padding: 0.2em 0.4em;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 85%;
 }
 
-pre code {
-  background-color: transparent;
-  padding: 0;
-}
-
-/* Links */
-a {
-  color: #0366d6;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Navigation styling */
-.navigation {
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-}
-
-.navigation ul {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.navigation li {
-  margin-right: 20px;
-  margin-bottom: 10px;
-}
-
-/* Responsive tables */
+/* Better table styling */
 table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin: 25px 0;
   width: 100%;
-  margin-bottom: 20px;
-  overflow-x: auto;
-  display: block;
 }
 
-th, td {
-  border: 1px solid #dfe2e5;
-  padding: 8px 12px;
-}
-
-th {
-  background-color: #f6f8fa;
-  font-weight: 600;
-}
-
-tr:nth-child(even) {
-  background-color: #f8f9fa;
-}
-
-/* Swift code highlighting */
-.language-swift {
+table th {
+  background-color: var(--ios-light-gray);
   color: #333;
+  font-weight: 500;
+  padding: 12px 15px;
+  text-align: left;
 }
 
-.language-swift .keyword {
-  color: #a71d5d;
+table tr:nth-child(even) {
+  background-color: #fafafa;
 }
 
-.language-swift .string {
-  color: #183691;
+table td {
+  padding: 10px 15px;
+  border-top: 1px solid #f0f0f0;
 }
 
-.language-swift .comment {
-  color: #969896;
-}
-
-/* Callouts/notes */
-.note, .warning, .tip {
-  padding: 15px;
-  margin: 20px 0;
-  border-left: 5px solid;
-  border-radius: 3px;
-}
-
-.note {
-  background-color: #f8f9fa;
-  border-left-color: #0366d6;
-}
-
-.warning {
-  background-color: #fff5f5;
-  border-left-color: #e53e3e;
-}
-
-.tip {
-  background-color: #f0fff4;
-  border-left-color: #38a169;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  body {
+/* Mobile responsive adjustments */
+@media (max-width: 576px) {
+  .markdown-body {
     padding: 15px;
   }
-
-  .navigation ul {
-    flex-direction: column;
-  }
-
-  .navigation li {
-    margin-right: 0;
-  }
-}\
-
-/* Code block container styling */
-.code-block {
-  background-color: #f6f8fa;
-  border-radius: 5px;
-  margin: 20px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Code block header with language label */
-.code-header {
-  background-color: #e1e4e8;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  padding: 8px 16px;
-  font-size: 12px;
-  color: #586069;
-  border-bottom: 1px solid #d1d5da;
-  display: flex;
-  justify-content: space-between;
-}
-
-.language-label {
-  background-color: #0366d6;
-  color: white;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-size: 11px;
-}
-
-.language-swift .language-label::after {
-  content: "Swift";
-}
-
-/* Line numbers for code blocks */
-.code-with-line-numbers {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  overflow-x: auto;
-}
-
-.line-numbers {
-  text-align: right;
-  padding: 16px 8px;
-  color: #6a737d;
-  border-right: 1px solid #e1e4e8;
-  user-select: none;
-}
-
-.code-content {
-  padding: 16px;
-  overflow-x: auto;
-}
-
-/* Specific Swift syntax elements */
-.token.keyword {
-  color: #a71d5d;
-}
-
-.token.string {
-  color: #183691;
-}
-
-.token.number {
-  color: #0086b3;
-}
-
-.token.comment {
-  color: #6a737d;
-  font-style: italic;
-}
-
-.token.function {
-  color: #6f42c1;
-}
-
-.token.property {
-  color: #005cc5;
-}
-
-.token.operator {
-  color: #d73a49;
-}
-/* style.css */
-.resize-img {
-  width: 400px;      /* or any width you prefer */
-  height: auto;      /* maintain aspect ratio */
-  display: block;    /* block display if you want each image on its own line */
-  margin: 0 auto;    /* center the image if you like */
 }
