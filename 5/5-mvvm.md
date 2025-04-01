@@ -111,12 +111,12 @@ The `@Observable` macro provides a streamlined way to implement the ViewModel in
 	var isValid: Bool {
 		!username.isEmpty && bio.count <= 160
 	}
-	
+
 	func fetchProfile() {
 		// Call repository/service to get data
 		// Update properties when data arrives
 	}
-	
+
 	func saveProfile() {
 		// Business logic to validate and save
 	}
@@ -147,16 +147,16 @@ struct User {
 ```swift
 @Observable class UserProfileViewModel {
 	private var user: User?
-	
+
 	var name = ""
 	var email = ""
 	var bio = ""
 	var isLoading = false
 	var errorMessage = ""
-	
+
 	func loadUser(id: UUID) {
 		isLoading = true
-		
+
 		// Simulated network call
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			self.user = User (id: id,
@@ -169,13 +169,13 @@ struct User {
 			self.isLoading = false
 		}
 	}
-	
+
 	func saveUser() {
 		guard let userId = user?.id else { return }
-		
+
 		// Update user model
 		user = User (id: userId, name: name, email: email, bio: bio)
-		
+
 		// Send data to backend
 	}
 }
@@ -187,17 +187,17 @@ struct User {
 struct UserProfileView: View {
 	@State privte var viewModel = UserProfileViewModel()
 	let userId: UUID
-	
+
 	var body some View {
 		Form {
 			Section("Profile Details") {
 				TextField("Name", text: $viewModel.name)
 				TextField("Email", text: $viewModel.email)
-				
+
 				ZStack(alignment: .topLeading) {
 					TextEditor(text: $viewModel.bio)
 						.frame(height: 100)
-						
+
 					if viewModel.bio.isEmpty {
 						Text("Bio")
 							.foregroundColor(.gray.opacity(0.8))
@@ -206,7 +206,7 @@ struct UserProfileView: View {
 					}
 				}
 			}
-			
+
 			Button("Save Changes") {
 				viewModel.saveUser()
 			}

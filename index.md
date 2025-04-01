@@ -14,4 +14,5 @@ title: Home
 - [UIKit Navigation](7/7.1-navigation.md)
 - [Networking Basics](8/8.1-networking-1.md)
 - [UIKit Basics](9/9.1-uikit.md)
+- [More Networking](10/10.1-more-networking.md)
 - [Persistence with Core Data](11/11-persistence.md)

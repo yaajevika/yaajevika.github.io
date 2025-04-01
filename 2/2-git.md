@@ -95,26 +95,26 @@ You can have a **local repository** on your machine and a **remote repository** 
 
 1. Make changes to `LoginViewController.swift`.
 2. Stage them:
-    
+
     ```bash
     git add LoginViewController.swift
-    
+
     ```
-    
+
 3. Commit them with a message:
-    
+
     ```bash
     git commit -m "Implement login functionality"
-    
+
     ```
-    
+
 4. Push them to the remote repository (assuming your branch is `main`):
-    
+
     ```bash
     git push origin main
-    
+
     ```
-    
+
 
 ### ASCII Diagram (Working Directory → Staging Area → Repository)
 
@@ -215,19 +215,19 @@ A **merge conflict** happens when two people edit the same part of the same file
 2. Decide which version of the code to keep (or combine parts of each).
 3. Delete the conflict markers and save the file.
 4. **Stage** the resolved file:
-    
+
     ```bash
     git add LoginViewController.swift
-    
+
     ```
-    
+
 5. **Commit** the resolution with a message like:
-    
+
     ```bash
     git commit -m "Resolve merge conflict in LoginViewController"
-    
+
     ```
-    
+
 6. Proceed with the merge.
 
 ### 4.6. The .gitignore File
@@ -345,20 +345,20 @@ Trunk-Based Development focuses on rapid integration and continuous merges, mini
     - Create a new branch (e.g., `feature/add-contributor-name`).
     - Edit a file (like `README.md`) to add your name under “Contributors.”
     - Stage and commit the change:
-        
+
         ```bash
         git add README.md
         git commit -m "Add John Doe to Contributors"
-        
+
         ```
-        
+
     - Push your branch:
-        
+
         ```bash
         git push origin feature/add-contributor-name
-        
+
         ```
-        
+
     - Open a PR on GitHub to merge `feature/add-contributor-name` into `main`.
     - Request a review from your team member.
 
